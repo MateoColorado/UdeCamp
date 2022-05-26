@@ -1,0 +1,969 @@
+﻿* {
+    padding: 0px;
+    margin: 0px;
+}
+
+/*Fondo animado*/
+
+body {
+    background-image: url(../Images/Inicio.jpg);
+    background-repeat: no-repeat;
+    background-size: 110%;
+    background-attachment: fixed;
+    animation: Fondo 50s linear infinite alternate;
+}
+
+
+    body:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: black;
+        opacity: 0.4;
+        z-index: 10;
+    }
+
+
+
+
+@keyframes Fondo {
+    from {
+        background-position: bottom right;
+    }
+
+    to {
+        background-position: top left;
+    }
+}
+
+
+
+/*Fin fondon animado*/
+
+.Container_Sesion {
+    display: flex;
+    position: relative;
+    z-index: 100;
+    background-color: #333333;
+    width: 60vw;
+    height: 320px;
+    margin-left: 20vw;
+    top: 150px;
+    border-radius: 10px;
+    opacity: 0.9;
+    color: white;
+}
+
+#logo {
+    width: 550px;
+    height: 550px;
+    position: relative;
+    top: -75px;
+    left: -300px;
+}
+
+.Info {
+    position: relative;
+    left: 55%;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.link {
+    text-decoration: none;
+    color: #f27318;
+    transition: 1s;
+}
+
+    .link:hover {
+        color: #56b62d;
+        transition: 0.5s ease-in;
+    }
+
+.form-control {
+    text-align: center;
+    margin: 5px;
+}
+
+h2 {
+    position: relative;
+    top: -25px;
+}
+
+.form-horizontal {
+    position: relative;
+    top: -20px;
+}
+
+.boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 110px;
+    height: 35px;
+    background: #0B0B0B;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    position: relative;
+    margin-top: 7px;
+    overflow: hidden;
+    margin-bottom: -10px;
+    transition: 1s;
+}
+
+    .boton:hover {
+        width: 175px;
+        transition: 1s;
+    }
+
+/*Celulares*/
+@media screen and (max-width: 340px){
+    body {
+        background-image: url(../Images/Inicio.jpg);
+        background-repeat: no-repeat;
+        background-size: 450%;
+        background-attachment: fixed;
+        animation: Fondo 100s linear infinite alternate;
+    }
+
+
+        body:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: black;
+            opacity: 0.4;
+            z-index: 10;
+        }
+
+    /*Fin fondon animado*/
+
+    /*Contenido-Sesion:*/
+
+    #logo {
+        display: none;
+    }
+
+    
+    .Container_Sesion {
+        height: 340px;
+        width: 100vw;
+        position: relative;
+        color:green;
+        padding-left:-80px;
+    }
+
+    .Info {
+        margin-left: -49%;
+        padding-right: 2%;
+    }
+}
+@media screen and (max-width: 340px) and (max-width: 375px) {
+    /*Fondo animado*/
+
+    body {
+        background-image: url(../Images/Inicio.jpg);
+        background-repeat: no-repeat;
+        background-size: 450%;
+        background-attachment: fixed;
+        animation: Fondo 100s linear infinite alternate;
+    }
+
+
+        body:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: black;
+            opacity: 0.4;
+            z-index: 10;
+        }
+
+    /*Fin fondon animado*/
+
+    /*Contenido-Sesion:*/
+
+    #logo {
+        display: none;
+    }
+
+
+    .Container_Sesion {
+        height: 340px;
+        width: 80%;
+        position: relative;
+        left: -35px;
+    }
+
+    .Info {
+        margin-left: -49%;
+        padding-right: 2%;
+    }
+}
+
+@media screen and (min-width: 375px) and (max-width: 385px) {
+    /*Fondo animado*/
+
+    body {
+        background-image: url(../Images/Inicio.jpg);
+        background-repeat: no-repeat;
+        background-size: 400%;
+        background-attachment: fixed;
+        animation: Fondo 100s linear infinite alternate;
+    }
+
+
+        body:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: black;
+            opacity: 0.4;
+            z-index: 10;
+        }
+
+    /*Fin fondon animado*/
+
+    /*Contenido-Sesion:*/
+
+    #logo {
+        display: none;
+    }
+
+
+    .Container_Sesion {
+        height: 340px;
+        width: 80%;
+        position: relative;
+        left: -35px;
+    }
+
+    .Info {
+        margin-left: -47%;
+        padding-right: 2%;
+    }
+}
+
+@media screen and (min-width: 385px) and (max-width: 410px) {
+
+    body {
+        background-image: url(../Images/Inicio.jpg);
+        background-repeat: no-repeat;
+        background-size: 380%;
+        background-attachment: fixed;
+        animation: Fondo 100s linear infinite alternate;
+    }
+
+
+        body:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: black;
+            opacity: 0.4;
+            z-index: 10;
+        }
+
+    /*Fin fondon animado*/
+
+    /*Contenido-Sesion:*/
+
+    #logo {
+        display: none;
+    }
+
+
+    .Container_Sesion {
+        height: 340px;
+        width: 80%;
+        position: relative;
+        left: -35px;
+    }
+
+    .Info {
+        margin-left: -46%;
+        padding-right: 2%;
+    }
+}
+
+@media screen and (min-width: 410px) and (max-width: 428px){
+
+    body {
+        background-image: url(../Images/Inicio.jpg);
+        background-repeat: no-repeat;
+        background-size: 380%;
+        background-attachment: fixed;
+        animation: Fondo 100s linear infinite alternate;
+    }
+
+
+        body:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: black;
+            opacity: 0.4;
+            z-index: 10;
+        }
+
+    /*Fin fondon animado*/
+
+    /*Contenido-Sesion:*/
+
+    #logo {
+        display: none;
+    }
+
+
+    .Container_Sesion {
+        height: 340px;
+        width: 80%;
+        position: relative;
+        left: -35px;
+    }
+
+    .Info {
+        margin-left: -43%;
+        padding-right: 2%;
+    }
+}
+
+@media screen and (min-width: 428px) and (max-width: 460px){
+
+    body {
+        background-image: url(../Images/Inicio.jpg);
+        background-repeat: no-repeat;
+        background-size: 380%;
+        background-attachment: fixed;
+        animation: Fondo 100s linear infinite alternate;
+    }
+
+
+        body:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: black;
+            opacity: 0.4;
+            z-index: 10;
+        }
+
+    /*Fin fondon animado*/
+
+    /*Contenido-Sesion:*/
+
+    #logo {
+        display: none;
+    }
+
+
+    .Container_Sesion {
+        height: 340px;
+        width: 80%;
+        position: relative;
+        left: -35px;
+    }
+
+    .Info {
+        margin-left: -40%;
+        padding-right: 2%;
+    }
+}
+
+@media screen and (min-width: 460px) and (max-width: 530px) {
+
+    body {
+        background-image: url(../Images/Inicio.jpg);
+        background-repeat: no-repeat;
+        background-size: 380%;
+        background-attachment: fixed;
+        animation: Fondo 100s linear infinite alternate;
+    }
+
+
+        body:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: black;
+            opacity: 0.4;
+            z-index: 10;
+        }
+
+    /*Fin fondon animado*/
+
+    /*Contenido-Sesion:*/
+
+    #logo {
+        display: none;
+    }
+
+
+    .Container_Sesion {
+        height: 340px;
+        width: 80%;
+        position: relative;
+        left: -35px;
+    }
+
+    .Info {
+        margin-left: -38%;
+        padding-right: 2%;
+    }
+}
+
+@media screen and (min-width: 530px) and (max-width: 640px) {
+
+    body {
+        background-image: url(../Images/Inicio.jpg);
+        background-repeat: no-repeat;
+        background-size: 380%;
+        background-attachment: fixed;
+        animation: Fondo 100s linear infinite alternate;
+    }
+
+
+        body:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: black;
+            opacity: 0.4;
+            z-index: 10;
+        }
+
+    /*Fin fondon animado*/
+
+    /*Contenido-Sesion:*/
+
+    #logo {
+        display: none;
+    }
+
+
+    .Container_Sesion {
+        height: 340px;
+        width: 80%;
+        position: relative;
+        left: -55px;
+    }
+
+    .Info {
+        margin-left: -35%;
+        padding-right: 2%;
+    }
+}
+
+@media screen and (min-width: 640px) and (max-width: 800px){
+    body {
+        background-image: url(../Images/Inicio.jpg);
+        background-repeat: no-repeat;
+        background-size: 300%;
+        background-attachment: fixed;
+        animation: Fondo 100s linear infinite alternate;
+    }
+
+
+        body:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: black;
+            opacity: 0.4;
+            z-index: 10;
+        }
+
+    /*Fin fondon animado*/
+
+    /*Contenido-Sesion:*/
+
+    #logo {
+        margin-left: 0vw;
+        height: 650px;
+    }
+
+
+    .Container_Sesion {
+        width: 100vw;
+        height: 450px;
+        margin-left: 0;
+        top: 25vh;
+    }
+
+    .Info {
+        margin-left: 0%;
+        padding-right: 2%;
+        top: 0px;
+    }
+
+    .boton {
+        position: relative;
+        top: 30px;
+        width: 175px;
+    }
+
+    #registrados {
+        position: relative;
+        top: 60px;
+    }
+
+    .form-horizontal {
+        position: relative;
+        top: 10px;
+    }
+
+    h2 {
+        position: relative;
+        top: 0px;
+    }
+}
+
+
+/*Horizontal*/
+@media screen and (min-width: 640px) and (max-width: 720px) and (orientation:landscape) {
+
+    body {
+        background-image: url(../Images/Inicio.jpg);
+        background-repeat: no-repeat;
+        background-size: 180%;
+        background-attachment: fixed;
+        animation: Fondo 100s linear infinite alternate;
+    }
+
+
+        body:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: black;
+            opacity: 0.4;
+            z-index: 10;
+        }
+
+    /*Fin fondon animado*/
+
+    /*Contenido-Sesion:*/
+
+    #logo {
+        display: none;
+    }
+
+
+    .Container_Sesion {
+        height: 100vh;
+        width: 80%;
+        position: relative;
+        left: -55px;
+        top: 0px;
+    }
+
+    .Info {
+        margin-left: -30%;
+        padding-right: 2%;
+        top: 0px;
+    }
+
+    .boton {
+        position: relative;
+        top: 20px;
+    }
+
+    #registrados {
+        position: relative;
+        top: 40px;
+    }
+
+    .form-horizontal {
+        position: relative;
+        top: 0px;
+    }
+
+    h2 {
+        position: relative;
+        top: -15px;
+    }
+}
+
+
+@media screen and (min-width: 720px) and (max-width:813px) and (max-height:376px) and (orientation:landscape) {
+
+    body {
+        background-image: url(../Images/Inicio.jpg);
+        background-repeat: no-repeat;
+        background-size: 380%;
+        background-attachment: fixed;
+        animation: Fondo 100s linear infinite alternate;
+    }
+
+
+        body:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: black;
+            opacity: 0.4;
+            z-index: 10;
+        }
+
+    /*Fin fondon animado*/
+
+
+    .Container_Sesion {
+        display: flex;
+        position: relative;
+        z-index: 100;
+        background-color: #333333;
+        width: 100vw;
+        height: 375px;
+        margin-left: 0vw;
+        top: 0px;
+        border-radius: 0px;
+        opacity: 0.9;
+        color: white;
+    }
+
+    #logo {
+        width: 250px;
+        height: 250px;
+        position: relative;
+        top: -40px;
+        left: -300px;
+    }
+
+    .Info {
+        position: relative;
+        left: 55%;
+        text-align: center;
+        padding-top: 60px;
+    }
+
+    .boton {
+        position: relative;
+        top: 20px;
+    }
+
+    #registrados {
+        position: relative;
+        top: 40px;
+    }
+
+    .form-horizontal {
+        position: relative;
+        top: 0px;
+    }
+
+    h2 {
+        position: relative;
+        top: -15px;
+    }
+}
+
+@media screen and (min-width: 720px) and (max-width:813px) and (min-height:376px) and (max-height:415px) and (orientation:landscape) {
+
+    body {
+        background-image: url(../Images/Inicio.jpg);
+        background-repeat: no-repeat;
+        background-size: 380%;
+        background-attachment: fixed;
+        animation: Fondo 100s linear infinite alternate;
+    }
+
+
+        body:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: black;
+            opacity: 0.4;
+            z-index: 10;
+        }
+
+    /*Fin fondon animado*/
+
+
+    .Container_Sesion {
+        display: flex;
+        position: relative;
+        z-index: 100;
+        background-color: #333333;
+        width: 100vw;
+        height: 414px;
+        margin-left: 0vw;
+        top: 0px;
+        border-radius: 0px;
+        opacity: 0.9;
+        color: white;
+    }
+
+    #logo {
+        width: 250px;
+        height: 250px;
+        position: relative;
+        top: -40px;
+        left: -300px;
+    }
+
+    .Info {
+        position: relative;
+        left: 55%;
+        text-align: center;
+        padding-top: 60px;
+    }
+
+    .boton {
+        position: relative;
+        top: 20px;
+    }
+
+    #registrados {
+        position: relative;
+        top: 40px;
+    }
+
+    .form-horizontal {
+        position: relative;
+        top: 0px;
+    }
+
+    h2 {
+        position: relative;
+        top: -15px;
+    }
+}
+
+@media screen and (min-width: 813px) and (max-width:930px) and (min-height:415px) and (max-height:429px) and (orientation:landscape) {
+
+    body {
+        background-image: url(../Images/Inicio.jpg);
+        background-repeat: no-repeat;
+        background-size: 380%;
+        background-attachment: fixed;
+        animation: Fondo 100s linear infinite alternate;
+    }
+
+
+        body:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: black;
+            opacity: 0.4;
+            z-index: 10;
+        }
+
+    /*Fin fondon animado*/
+
+
+    .Container_Sesion {
+        display: flex;
+        position: relative;
+        z-index: 100;
+        background-color: #333333;
+        width: 100vw;
+        height: 428px;
+        margin-left: 0vw;
+        top: 0px;
+        border-radius: 0px;
+        opacity: 0.9;
+        color: white;
+    }
+
+    #logo {
+        width: 250px;
+        height: 250px;
+        position: relative;
+        top: -40px;
+        left: -300px;
+    }
+
+    .Info {
+        position: relative;
+        left: 55%;
+        text-align: center;
+        padding-top: 60px;
+    }
+
+    .boton {
+        position: relative;
+        top: 20px;
+    }
+
+    #registrados {
+        position: relative;
+        top: 40px;
+    }
+
+    .form-horizontal {
+        position: relative;
+        top: 0px;
+    }
+
+    h2 {
+        position: relative;
+        top: -15px;
+    }
+}
+
+/*Tabletas*/
+@media screen and (min-width: 814px) and (max-width: 1025px) {
+    body {
+        background-image: url(../Images/Inicio.jpg);
+        background-repeat: no-repeat;
+        background-size: 250%;
+        background-attachment: fixed;
+        animation: Fondo 100s linear infinite alternate;
+    }
+
+
+        body:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: black;
+            opacity: 0.4;
+            z-index: 10;
+        }
+
+    /*Fin fondon animado*/
+
+    /*Contenido-Sesion:*/
+
+    #logo {
+        margin-left: 0vw;
+        height: 650px;
+    }
+
+
+    .Container_Sesion {
+        width: 100vw;
+        height: 400px;
+        margin-left: 0;
+        top: 25vh;
+    }
+
+    .Info {
+        margin-left: 0%;
+        padding-right: 2%;
+        top: 0px;
+    }
+
+    .boton {
+        position: relative;
+        top: 30px;
+        width: 175px;
+    }
+
+    #registrados {
+        position: relative;
+        top: 60px;
+    }
+
+    .form-horizontal {
+        position: relative;
+        top: 10px;
+    }
+
+    h2 {
+        position: relative;
+        top: 0px;
+    }
+}
+
+@media screen and (min-width: 1023px) and (max-width: 1300px) and (orientation:landscape){
+
+
+    body {
+        background-image: url(../Images/Inicio.jpg);
+        background-repeat: no-repeat;
+        background-size: 250%;
+        background-attachment: fixed;
+        animation: Fondo 100s linear infinite alternate;
+    }
+
+
+        body:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: black;
+            opacity: 0.4;
+            z-index: 10;
+        }
+
+    /*Fin fondon animado*/
+
+    /*Contenido-Sesion:*/
+
+    #logo {
+        margin-left: 10vw;
+        height: 650px;
+    }
+
+
+    .Container_Sesion {
+        width: 100vw;
+        height: 55vh;
+        margin-left: 0;
+        top: 25vh;
+    }
+
+    .Info {
+        margin-left: 0%;
+        padding-right: 2%;
+        top: 0px;
+    }
+
+    .boton {
+        position: relative;
+        top: 30px;
+        width: 175px;
+    }
+
+    #registrados {
+        position: relative;
+        top: 60px;
+    }
+
+    .form-horizontal {
+        position: relative;
+        top: 10px;
+    }
+
+    h2 {
+        position: relative;
+        top: 0px;
+    }
+}

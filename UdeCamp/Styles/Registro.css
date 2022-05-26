@@ -1,0 +1,206 @@
+﻿*{
+    padding:0;
+    margin:0;
+    text-align:center;
+}
+
+body {
+    background-image: url(../Images/Frente.jpg);
+    background-size: 110%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    animation: Frente 50s linear infinite alternate;
+}
+
+
+@keyframes Frente{
+    from{
+        background-position:top;
+    }to{
+         background-position:bottom;
+     }
+}
+
+.Contenedor{
+    background-color:#333333;
+    height:900px;
+    width:50vw;
+    margin-left:25vw;
+    opacity:0.95;
+}
+
+.Campo{
+    margin-top:20px;
+    border-radius:5px;
+    width:190px;
+    height:20px;
+
+}
+
+.CampoD{
+   position:relative;
+   top:5px;
+  
+}
+
+.texto {
+    color:white;
+    margin-top: 15px;
+    font-size:20px;
+}
+
+.boton {
+    background-color: #EC8E26;
+    width:150px;
+    height:35px;
+    border-radius:5px;
+    border:none;
+    position:relative;
+    top:50px;
+    cursor:pointer;
+    transition:1s;
+}
+
+.boton:hover{
+    width:180px;
+    transition:1s;
+}
+
+h2 {
+    color: #EC8E26;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.condiciones{
+    display:block;
+    padding-top:50px;
+    color:white;
+        
+}
+
+.cuentas{
+    position:relative;
+    top:80px;
+    color:white;
+}
+
+.link{
+    text-decoration:none;
+    color:#EC8E26;
+    transition:0.5s;
+}
+
+    .link:hover {
+        color: #56b62d;
+        transition: 0.5s ease-in;
+    }
+
+
+    /*Responsive:*/
+/*Celulares*/
+
+@media screen and (max-width: 750px){
+
+    body {
+        background-image: url(../Images/Frente.jpg);
+        background-size: 380%;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        animation: Frente 20s linear infinite alternate;
+    }
+
+    @keyframes Frente {
+        from {
+            background-position: top;
+        }
+
+        to {
+            background-position: bottom;
+        }
+    }
+
+    .Contenedor {
+        background-color: #333333;
+        height: 900px;
+        width: 100vw;
+        margin-left: 0vw;
+        opacity: 0.95;
+    }
+
+    .condiciones{
+        padding:20px;
+        position:relative;
+        top:10px;
+    }
+}
+
+@media screen and (min-width: 750px) and (max-width: 900px){
+
+    body {
+        background-image: url(../Images/Frente.jpg);
+        background-size: 400%;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        animation: Frente 50s linear infinite alternate;
+    }
+
+    @keyframes Frente {
+        from {
+            background-position: top;
+        }
+
+        to {
+            background-position: bottom;
+        }
+    }
+
+    .Contenedor {
+        background-color: #333333;
+        height: 900px;
+        width: 100vw;
+        margin-left: 0vw;
+        opacity: 0.95;
+    }
+
+    .condiciones {
+        padding: 20px;
+        position: relative;
+        top: 10px;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1300px) and (orientation:landscape){
+
+    body {
+        background-image: url(../Images/Frente.jpg);
+        background-size: 400%;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        animation: Frente 50s linear infinite alternate;
+    }
+
+    @keyframes Frente {
+        from {
+            background-position: top;
+        }
+
+        to {
+            background-position: bottom;
+        }
+    }
+
+    .Contenedor {
+        background-color: #333333;
+        height: 900px;
+        width: 100vw;
+        margin-left: 0vw;
+        opacity: 0.95;
+    }
+
+    .condiciones {
+        padding: 20px;
+        position: relative;
+        top: 10px;
+    }
+}

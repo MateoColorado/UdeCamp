@@ -1,0 +1,49 @@
+﻿@model UdeCamp.Models.student
+
+<input type="hidden" id="message" value="@ViewBag.mensaje">
+
+@{
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+
+    ViewBag.Title = "UdeCamp-Salas";
+}
+
+@{
+    if (Session["Nombre"] == null)
+    {
+        Response.Redirect("~/Usuario");
+    }
+    else if (ViewBag.num == "Uno")
+    {
+        <script>
+            var mensa = document.getElementById('message').value;
+
+            Swal.fire({
+                icon: "success",
+                title: mensa,
+                showConfirmButton: true,
+                confirmButtonText: "Cerrar"
+            });
+        </script>
+        ViewBag.num = "Dos";
+    }
+}
+<div class="cont">
+    <h2 class="sub">Principal</h2>
+    <h2 class="sub">Bienvenido a UdeCamp @Session["Nombre"]</h2>
+
+    <!--API DE FACEBOOK-->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v13.0&appId=1141841712630210&autoLogAppEvents=1" nonce="qm2AOw01"></script>
+
+    <div class="fb-comments" data-href="http://localhost/Usuario/Index.cshtml" data-width="100%" data-numposts="5"></div>
+
+    <p>
+        @Html.ActionLink("Sala de chat", "Chat", null, new { @class = "link" })
+    </p>
+
+    <p>
+        @Html.ActionLink("Cerrar Sesion", "Iniciar", null, new { @class = "link" })
+    </p>
+
+</div>

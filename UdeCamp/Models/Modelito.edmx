@@ -1,0 +1,549 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="udecampModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="career">
+          <Key>
+            <PropertyRef Name="id_career" />
+          </Key>
+          <Property Name="id_career" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name_career" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="level_of_education" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="estimated_duration" Type="int" Nullable="false" />
+          <Property Name="academic_credits" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="comment">
+          <Key>
+            <PropertyRef Name="id_co" />
+          </Key>
+          <Property Name="id_co" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cod_co" Type="int" Nullable="false" />
+          <Property Name="text_co" Type="varchar" MaxLength="8000" Nullable="false" />
+          <Property Name="date_co" Type="date" Nullable="false" />
+          <Property Name="id_post_co" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="like_po">
+          <Key>
+            <PropertyRef Name="id_like" />
+          </Key>
+          <Property Name="id_like" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cod_stud" Type="int" Nullable="false" />
+          <Property Name="type_like" Type="int" Nullable="false" />
+          <Property Name="id_po" Type="int" Nullable="false" />
+          <Property Name="date_post" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="post">
+          <Key>
+            <PropertyRef Name="id_pos" />
+          </Key>
+          <Property Name="id_pos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cod_stu" Type="int" Nullable="false" />
+          <Property Name="type_post" Type="int" Nullable="false" />
+          <Property Name="text_post" Type="varchar" MaxLength="8000" Nullable="false" />
+          <Property Name="date_post" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="student">
+          <Key>
+            <PropertyRef Name="cod_st" />
+          </Key>
+          <Property Name="cod_st" Type="int" Nullable="false" />
+          <Property Name="career_st" Type="int" Nullable="false" />
+          <Property Name="nam_st" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="ape_st" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="email_st" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="pass_st" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="conditions_st" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="type_like">
+          <Key>
+            <PropertyRef Name="id_like" />
+          </Key>
+          <Property Name="id_like" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name_like" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="type_post">
+          <Key>
+            <PropertyRef Name="id_post" />
+          </Key>
+          <Property Name="id_post" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name_post" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__comment__cod_co__440B1D61">
+          <End Role="student" Type="Self.student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="comment" Type="Self.comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="cod_st" />
+            </Principal>
+            <Dependent Role="comment">
+              <PropertyRef Name="cod_co" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__comment__id_post__44FF419A">
+          <End Role="post" Type="Self.post" Multiplicity="1" />
+          <End Role="comment" Type="Self.comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="post">
+              <PropertyRef Name="id_pos" />
+            </Principal>
+            <Dependent Role="comment">
+              <PropertyRef Name="id_post_co" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__like_po__cod_stu__571DF1D5">
+          <End Role="student" Type="Self.student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="like_po" Type="Self.like_po" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="cod_st" />
+            </Principal>
+            <Dependent Role="like_po">
+              <PropertyRef Name="cod_stud" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__like_po__id_po__59063A47">
+          <End Role="post" Type="Self.post" Multiplicity="1" />
+          <End Role="like_po" Type="Self.like_po" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="post">
+              <PropertyRef Name="id_pos" />
+            </Principal>
+            <Dependent Role="like_po">
+              <PropertyRef Name="id_po" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__like_po__type_li__5812160E">
+          <End Role="type_like" Type="Self.type_like" Multiplicity="1" />
+          <End Role="like_po" Type="Self.like_po" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="type_like">
+              <PropertyRef Name="id_like" />
+            </Principal>
+            <Dependent Role="like_po">
+              <PropertyRef Name="type_like" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__post__cod_stu__3F466844">
+          <End Role="student" Type="Self.student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="post" Type="Self.post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="cod_st" />
+            </Principal>
+            <Dependent Role="post">
+              <PropertyRef Name="cod_stu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__post__type_post__403A8C7D">
+          <End Role="type_post" Type="Self.type_post" Multiplicity="1" />
+          <End Role="post" Type="Self.post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="type_post">
+              <PropertyRef Name="id_post" />
+            </Principal>
+            <Dependent Role="post">
+              <PropertyRef Name="type_post" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__student__career___398D8EEE">
+          <End Role="career" Type="Self.career" Multiplicity="1" />
+          <End Role="student" Type="Self.student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="career">
+              <PropertyRef Name="id_career" />
+            </Principal>
+            <Dependent Role="student">
+              <PropertyRef Name="career_st" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="udecampModelStoreContainer">
+          <EntitySet Name="career" EntityType="Self.career" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="comment" EntityType="Self.comment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="like_po" EntityType="Self.like_po" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="post" EntityType="Self.post" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="student" EntityType="Self.student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="type_like" EntityType="Self.type_like" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="type_post" EntityType="Self.type_post" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__comment__cod_co__440B1D61" Association="Self.FK__comment__cod_co__440B1D61">
+            <End Role="student" EntitySet="student" />
+            <End Role="comment" EntitySet="comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__comment__id_post__44FF419A" Association="Self.FK__comment__id_post__44FF419A">
+            <End Role="post" EntitySet="post" />
+            <End Role="comment" EntitySet="comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__like_po__cod_stu__571DF1D5" Association="Self.FK__like_po__cod_stu__571DF1D5">
+            <End Role="student" EntitySet="student" />
+            <End Role="like_po" EntitySet="like_po" />
+          </AssociationSet>
+          <AssociationSet Name="FK__like_po__id_po__59063A47" Association="Self.FK__like_po__id_po__59063A47">
+            <End Role="post" EntitySet="post" />
+            <End Role="like_po" EntitySet="like_po" />
+          </AssociationSet>
+          <AssociationSet Name="FK__like_po__type_li__5812160E" Association="Self.FK__like_po__type_li__5812160E">
+            <End Role="type_like" EntitySet="type_like" />
+            <End Role="like_po" EntitySet="like_po" />
+          </AssociationSet>
+          <AssociationSet Name="FK__post__cod_stu__3F466844" Association="Self.FK__post__cod_stu__3F466844">
+            <End Role="student" EntitySet="student" />
+            <End Role="post" EntitySet="post" />
+          </AssociationSet>
+          <AssociationSet Name="FK__post__type_post__403A8C7D" Association="Self.FK__post__type_post__403A8C7D">
+            <End Role="type_post" EntitySet="type_post" />
+            <End Role="post" EntitySet="post" />
+          </AssociationSet>
+          <AssociationSet Name="FK__student__career___398D8EEE" Association="Self.FK__student__career___398D8EEE">
+            <End Role="career" EntitySet="career" />
+            <End Role="student" EntitySet="student" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="udecampModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="career">
+          <Key>
+            <PropertyRef Name="id_career" />
+          </Key>
+          <Property Name="id_career" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name_career" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="level_of_education" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estimated_duration" Type="Int32" Nullable="false" />
+          <Property Name="academic_credits" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="student" Relationship="Self.FK__student__career___398D8EEE" FromRole="career" ToRole="student" />
+        </EntityType>
+        <EntityType Name="comment">
+          <Key>
+            <PropertyRef Name="id_co" />
+          </Key>
+          <Property Name="id_co" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cod_co" Type="Int32" Nullable="false" />
+          <Property Name="text_co" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="date_co" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="id_post_co" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="student" Relationship="Self.FK__comment__cod_co__440B1D61" FromRole="comment" ToRole="student" />
+          <NavigationProperty Name="post" Relationship="Self.FK__comment__id_post__44FF419A" FromRole="comment" ToRole="post" />
+        </EntityType>
+        <EntityType Name="like_po">
+          <Key>
+            <PropertyRef Name="id_like" />
+          </Key>
+          <Property Name="id_like" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cod_stud" Type="Int32" Nullable="false" />
+          <Property Name="type_like" Type="Int32" Nullable="false" />
+          <Property Name="id_po" Type="Int32" Nullable="false" />
+          <Property Name="date_post" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="student" Relationship="Self.FK__like_po__cod_stu__571DF1D5" FromRole="like_po" ToRole="student" />
+          <NavigationProperty Name="post" Relationship="Self.FK__like_po__id_po__59063A47" FromRole="like_po" ToRole="post" />
+          <NavigationProperty Name="type_like1" Relationship="Self.FK__like_po__type_li__5812160E" FromRole="like_po" ToRole="type_like" />
+        </EntityType>
+        <EntityType Name="post">
+          <Key>
+            <PropertyRef Name="id_pos" />
+          </Key>
+          <Property Name="id_pos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cod_stu" Type="Int32" Nullable="false" />
+          <Property Name="type_post" Type="Int32" Nullable="false" />
+          <Property Name="text_post" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="date_post" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="comment" Relationship="Self.FK__comment__id_post__44FF419A" FromRole="post" ToRole="comment" />
+          <NavigationProperty Name="like_po" Relationship="Self.FK__like_po__id_po__59063A47" FromRole="post" ToRole="like_po" />
+          <NavigationProperty Name="student" Relationship="Self.FK__post__cod_stu__3F466844" FromRole="post" ToRole="student" />
+          <NavigationProperty Name="type_post1" Relationship="Self.FK__post__type_post__403A8C7D" FromRole="post" ToRole="type_post" />
+        </EntityType>
+        <EntityType Name="student">
+          <Key>
+            <PropertyRef Name="cod_st" />
+          </Key>
+          <Property Name="cod_st" Type="Int32" Nullable="false" />
+          <Property Name="career_st" Type="Int32" Nullable="false" />
+          <Property Name="nam_st" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ape_st" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email_st" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pass_st" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="conditions_st" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="career" Relationship="Self.FK__student__career___398D8EEE" FromRole="student" ToRole="career" />
+          <NavigationProperty Name="comment" Relationship="Self.FK__comment__cod_co__440B1D61" FromRole="student" ToRole="comment" />
+          <NavigationProperty Name="like_po" Relationship="Self.FK__like_po__cod_stu__571DF1D5" FromRole="student" ToRole="like_po" />
+          <NavigationProperty Name="post" Relationship="Self.FK__post__cod_stu__3F466844" FromRole="student" ToRole="post" />
+        </EntityType>
+        <EntityType Name="type_like">
+          <Key>
+            <PropertyRef Name="id_like" />
+          </Key>
+          <Property Name="id_like" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name_like" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="like_po" Relationship="Self.FK__like_po__type_li__5812160E" FromRole="type_like" ToRole="like_po" />
+        </EntityType>
+        <EntityType Name="type_post">
+          <Key>
+            <PropertyRef Name="id_post" />
+          </Key>
+          <Property Name="id_post" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name_post" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="post" Relationship="Self.FK__post__type_post__403A8C7D" FromRole="type_post" ToRole="post" />
+        </EntityType>
+        <Association Name="FK__student__career___398D8EEE">
+          <End Role="career" Type="Self.career" Multiplicity="1" />
+          <End Role="student" Type="Self.student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="career">
+              <PropertyRef Name="id_career" />
+            </Principal>
+            <Dependent Role="student">
+              <PropertyRef Name="career_st" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__comment__cod_co__440B1D61">
+          <End Role="student" Type="Self.student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="comment" Type="Self.comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="cod_st" />
+            </Principal>
+            <Dependent Role="comment">
+              <PropertyRef Name="cod_co" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__comment__id_post__44FF419A">
+          <End Role="post" Type="Self.post" Multiplicity="1" />
+          <End Role="comment" Type="Self.comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="post">
+              <PropertyRef Name="id_pos" />
+            </Principal>
+            <Dependent Role="comment">
+              <PropertyRef Name="id_post_co" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__like_po__cod_stu__571DF1D5">
+          <End Role="student" Type="Self.student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="like_po" Type="Self.like_po" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="cod_st" />
+            </Principal>
+            <Dependent Role="like_po">
+              <PropertyRef Name="cod_stud" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__like_po__id_po__59063A47">
+          <End Role="post" Type="Self.post" Multiplicity="1" />
+          <End Role="like_po" Type="Self.like_po" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="post">
+              <PropertyRef Name="id_pos" />
+            </Principal>
+            <Dependent Role="like_po">
+              <PropertyRef Name="id_po" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__like_po__type_li__5812160E">
+          <End Role="type_like" Type="Self.type_like" Multiplicity="1" />
+          <End Role="like_po" Type="Self.like_po" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="type_like">
+              <PropertyRef Name="id_like" />
+            </Principal>
+            <Dependent Role="like_po">
+              <PropertyRef Name="type_like" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__post__cod_stu__3F466844">
+          <End Role="student" Type="Self.student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="post" Type="Self.post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="cod_st" />
+            </Principal>
+            <Dependent Role="post">
+              <PropertyRef Name="cod_stu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__post__type_post__403A8C7D">
+          <End Role="type_post" Type="Self.type_post" Multiplicity="1" />
+          <End Role="post" Type="Self.post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="type_post">
+              <PropertyRef Name="id_post" />
+            </Principal>
+            <Dependent Role="post">
+              <PropertyRef Name="type_post" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="udecampEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="career" EntityType="Self.career" />
+          <EntitySet Name="comment" EntityType="Self.comment" />
+          <EntitySet Name="like_po" EntityType="Self.like_po" />
+          <EntitySet Name="post" EntityType="Self.post" />
+          <EntitySet Name="student" EntityType="Self.student" />
+          <EntitySet Name="type_like" EntityType="Self.type_like" />
+          <EntitySet Name="type_post" EntityType="Self.type_post" />
+          <AssociationSet Name="FK__student__career___398D8EEE" Association="Self.FK__student__career___398D8EEE">
+            <End Role="career" EntitySet="career" />
+            <End Role="student" EntitySet="student" />
+          </AssociationSet>
+          <AssociationSet Name="FK__comment__cod_co__440B1D61" Association="Self.FK__comment__cod_co__440B1D61">
+            <End Role="student" EntitySet="student" />
+            <End Role="comment" EntitySet="comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__comment__id_post__44FF419A" Association="Self.FK__comment__id_post__44FF419A">
+            <End Role="post" EntitySet="post" />
+            <End Role="comment" EntitySet="comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__like_po__cod_stu__571DF1D5" Association="Self.FK__like_po__cod_stu__571DF1D5">
+            <End Role="student" EntitySet="student" />
+            <End Role="like_po" EntitySet="like_po" />
+          </AssociationSet>
+          <AssociationSet Name="FK__like_po__id_po__59063A47" Association="Self.FK__like_po__id_po__59063A47">
+            <End Role="post" EntitySet="post" />
+            <End Role="like_po" EntitySet="like_po" />
+          </AssociationSet>
+          <AssociationSet Name="FK__like_po__type_li__5812160E" Association="Self.FK__like_po__type_li__5812160E">
+            <End Role="type_like" EntitySet="type_like" />
+            <End Role="like_po" EntitySet="like_po" />
+          </AssociationSet>
+          <AssociationSet Name="FK__post__cod_stu__3F466844" Association="Self.FK__post__cod_stu__3F466844">
+            <End Role="student" EntitySet="student" />
+            <End Role="post" EntitySet="post" />
+          </AssociationSet>
+          <AssociationSet Name="FK__post__type_post__403A8C7D" Association="Self.FK__post__type_post__403A8C7D">
+            <End Role="type_post" EntitySet="type_post" />
+            <End Role="post" EntitySet="post" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="udecampModelStoreContainer" CdmEntityContainer="udecampEntities">
+          <EntitySetMapping Name="career">
+            <EntityTypeMapping TypeName="udecampModel.career">
+              <MappingFragment StoreEntitySet="career">
+                <ScalarProperty Name="id_career" ColumnName="id_career" />
+                <ScalarProperty Name="name_career" ColumnName="name_career" />
+                <ScalarProperty Name="level_of_education" ColumnName="level_of_education" />
+                <ScalarProperty Name="estimated_duration" ColumnName="estimated_duration" />
+                <ScalarProperty Name="academic_credits" ColumnName="academic_credits" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="comment">
+            <EntityTypeMapping TypeName="udecampModel.comment">
+              <MappingFragment StoreEntitySet="comment">
+                <ScalarProperty Name="id_co" ColumnName="id_co" />
+                <ScalarProperty Name="cod_co" ColumnName="cod_co" />
+                <ScalarProperty Name="text_co" ColumnName="text_co" />
+                <ScalarProperty Name="date_co" ColumnName="date_co" />
+                <ScalarProperty Name="id_post_co" ColumnName="id_post_co" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="like_po">
+            <EntityTypeMapping TypeName="udecampModel.like_po">
+              <MappingFragment StoreEntitySet="like_po">
+                <ScalarProperty Name="id_like" ColumnName="id_like" />
+                <ScalarProperty Name="cod_stud" ColumnName="cod_stud" />
+                <ScalarProperty Name="type_like" ColumnName="type_like" />
+                <ScalarProperty Name="id_po" ColumnName="id_po" />
+                <ScalarProperty Name="date_post" ColumnName="date_post" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="post">
+            <EntityTypeMapping TypeName="udecampModel.post">
+              <MappingFragment StoreEntitySet="post">
+                <ScalarProperty Name="id_pos" ColumnName="id_pos" />
+                <ScalarProperty Name="cod_stu" ColumnName="cod_stu" />
+                <ScalarProperty Name="type_post" ColumnName="type_post" />
+                <ScalarProperty Name="text_post" ColumnName="text_post" />
+                <ScalarProperty Name="date_post" ColumnName="date_post" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="student">
+            <EntityTypeMapping TypeName="udecampModel.student">
+              <MappingFragment StoreEntitySet="student">
+                <ScalarProperty Name="cod_st" ColumnName="cod_st" />
+                <ScalarProperty Name="career_st" ColumnName="career_st" />
+                <ScalarProperty Name="nam_st" ColumnName="nam_st" />
+                <ScalarProperty Name="ape_st" ColumnName="ape_st" />
+                <ScalarProperty Name="email_st" ColumnName="email_st" />
+                <ScalarProperty Name="pass_st" ColumnName="pass_st" />
+                <ScalarProperty Name="conditions_st" ColumnName="conditions_st" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="type_like">
+            <EntityTypeMapping TypeName="udecampModel.type_like">
+              <MappingFragment StoreEntitySet="type_like">
+                <ScalarProperty Name="id_like" ColumnName="id_like" />
+                <ScalarProperty Name="name_like" ColumnName="name_like" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="type_post">
+            <EntityTypeMapping TypeName="udecampModel.type_post">
+              <MappingFragment StoreEntitySet="type_post">
+                <ScalarProperty Name="id_post" ColumnName="id_post" />
+                <ScalarProperty Name="name_post" ColumnName="name_post" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

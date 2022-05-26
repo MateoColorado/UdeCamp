@@ -1,0 +1,75 @@
+﻿@model UdeCamp.Models.student
+@{
+    ViewBag.Title = "UdeCamps-Chat";
+    Layout = "../Shared/_Layout4.cshtml";
+}
+
+@{
+    if (Session["Nombre"] == null)
+    {
+        Response.Redirect("~/Usuario");
+    }
+}
+
+<h2>Chat Udecamp</h2>
+
+<!--Input oculto que almacena el nombre de usuario con el fin de poder obtener el nombre en el script más adelante-->
+<input type="hidden" id="UserName" value="@Session["Nombre"]">  
+
+<p class="link">
+    @Html.ActionLink("Volver al Perfil", "Index", null, new { @class = "link" })
+</p>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <input type="text" class="form-control" id="cajamensaje" />
+        </div>
+    </div> <br />
+    <div class="row">
+        <div class="col-lg-12">
+            <input type="button" class="boton" id="botonenviar" value="Enviar" />
+        </div>
+    </div>
+    <div class="row">
+        <ul id="mensajesenchat">
+        </ul>
+    </div>
+</div>
+
+<input type="hidden" id="mostrarnombre" />
+
+@section scripts{
+    <script src="~/Scripts/jquery.signalR-2.4.3.min.js"></script>
+    <script src="/signalr/hubs"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var chat = $.connection.chatHub;
+            //Conexión con ChatHub
+            chat.client.EnviarMensaje = function (usuario, mensaje) {
+                var divnombre = $("<div/>").text(usuario).html();
+                var divmensaje = $("<div/>").text(mensaje).html();
+
+                $("#mensajesenchat").append("<li>" + "<b>" + divnombre + "</b>" + ": " + divmensaje + "</li>");
+            };
+
+            //Inicio de un usuario de pueba
+            var nombreusuario = document.getElementById('UserName').value;
+            $("#mostrarnombre").val(nombreusuario);
+            $("#cajamensaje").focus();
+
+            //Procedimiento al hacer click en el boton
+            $.connection.hub.start().done(function () {
+                $("#botonenviar").click(function () {
+                    var nombreusuario = $("#mostrarnombre").val();
+                    var mensajeenviar = $("#cajamensaje").val();
+
+                    chat.server.send(nombreusuario, mensajeenviar); //Send es el nombre del metodo en la clase ChatHub
+                    $("#cajamensaje").val("").focus();
+                });
+            });
+        });
+    </script>
+}
+

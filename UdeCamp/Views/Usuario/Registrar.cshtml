@@ -1,0 +1,112 @@
+﻿@model UdeCamp.Models.student
+
+<input type="hidden" id="message" value="@ViewBag.mensaje">
+
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    ViewBag.Title = "UdeCamp-Registro";
+
+    if (ViewBag.mensaje == "Debe llenar todos los campos")
+    {
+        <script>
+            var mensa = document.getElementById('message').value;
+
+            Swal.fire({
+                icon: "error",
+                title: mensa,
+                showConfirmButton: true,
+                confirmButtonText: "Cerrar"
+            });
+        </script>
+    }
+}
+<div class="Contenedor">
+
+    <h2>¡Crea tu cuenta Ahora!</h2>
+
+
+    @using (Html.BeginForm("Nuevo", "Usuario", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h2>Registro de estudiantes</h2>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <strong><p class="texto">Código de estudiante:</p></strong>
+                <div class="col-md-10">
+                    <input class="Campo" name="codigo" type="number" required />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <strong><p class="texto">Carrera:</p></strong>
+                <div class="col-md-10">
+                    <select class="Campo" name="carrera">
+                        <option>Seleccione..</option>
+                        <option>Ingeniería de sistemas y computación</option>
+                        <option>Ingeniería de sistemas</option>
+                        <option>Administración de Empresas</option>
+                        <option>Psicología.</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <strong><p class="texto">Nombre:</p></strong>
+                <div class="col-md-10">
+                    <input class="Campo" name="nombre" type="text" required />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <strong><p class="texto">Apellido:</p></strong>
+                <div class="col-md-10">
+                    <input class="Campo" name="apellido" type="text" required />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <strong><p class="texto">Correo:</p></strong>
+                <div class="col-md-10">
+                    <input class="Campo" name="correo" type="email" required />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <strong><p class="texto">Contraseña:</p></strong>
+                <div class="col-md-10">
+                    <input class="Campo" name="contraseña" type="password" required />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <strong><p class="condiciones">He leído y acepto los términos y condiciones de uso:</p></strong>
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        <input class="CampoD" name="condiciones" type="checkbox" required />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Unirme a UdeCamp!" class="boton" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        <p class="cuentas">
+            ¿Ya tienes una cuenta? @Html.ActionLink("Inicia sesión", "Iniciar", null, new { @class = "link" })
+        </p>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

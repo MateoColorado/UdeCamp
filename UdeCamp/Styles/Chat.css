@@ -1,0 +1,74 @@
+﻿* {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+body {
+    background-image: url(../Images/Logo.png);
+    background-size: cover;
+    background-position:center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.container{
+    background-color:white;
+    opacity:0.95;
+}
+
+h2{
+    margin-top:100px;
+    padding-bottom:10px;
+}
+
+.link {
+    text-decoration: none;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    color: #f27318;
+    font-size: 20px;
+    transition: 1s;
+}
+
+    .link:hover {
+        
+        font-size: 25px;
+        transition: 1s;
+    }
+
+.form-control{
+    
+    margin-top:15px;
+    width:200px;
+}
+
+.boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 110px;
+    height: 35px;
+    background: #0B0B0B;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    position: relative;
+    margin-top: 7px;
+    overflow: hidden;
+    margin-bottom: -10px;
+    transition: 1s;
+}
+
+#mensajesenchat{
+    
+    padding-top:40px;
+    padding-bottom:50px;
+}
+
+@media screen and (min-width: 640px) and (max-width: 720px) and (orientation:landscape) {
+    h2 {
+        margin-top: 0px;
+        padding-bottom: 10px;
+    }
+}

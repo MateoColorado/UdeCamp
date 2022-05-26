@@ -1,0 +1,42 @@
+﻿*{
+    text-align:center;
+    align-items:center;
+
+}
+
+body {
+    background-image:url(../Images/Diagonal.jpg);
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+    background-repeat:no-repeat;
+}
+
+.sub{
+    color:white;
+    position:relative;
+    top:50px;
+}
+
+.cont{
+    position:relative;
+    top:25vh;
+    background-color:#333333;
+    height:250px;
+    opacity:0.95;
+    margin-left:5%;
+    margin-right:5%;
+}
+
+.link {
+    text-decoration: none;
+    position: relative;
+    top: 25px;
+    color: #EC8E26;
+    transition:1s;
+}
+
+.link:hover{
+    font-size:25px;
+    transition:1s;
+}

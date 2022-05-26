@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0f36345ccdf9481aae2c3b14c3620ded" Name="Diagram1">
+        <EntityTypeShape EntityType="udecampModel.career" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="udecampModel.comment" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="udecampModel.like_po" Width="1.5" PointX="8.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="udecampModel.post" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="udecampModel.student" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="udecampModel.type_like" Width="1.5" PointX="6" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="udecampModel.type_post" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <AssociationConnector Association="udecampModel.FK__student__career___398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="udecampModel.FK__comment__cod_co__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="udecampModel.FK__comment__id_post__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="udecampModel.FK__like_po__cod_stu__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="udecampModel.FK__like_po__id_po__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="udecampModel.FK__like_po__type_li__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="udecampModel.FK__post__cod_stu__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="udecampModel.FK__post__type_post__403A8C7D" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
